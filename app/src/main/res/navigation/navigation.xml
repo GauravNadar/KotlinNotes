@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/notesList">
+
+    <fragment
+        android:id="@+id/notesList"
+        android:name="com.gauravnadar.notes.screens.NotesList"
+        android:label="NotesList"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_notesList_to_addNote"
+            app:destination="@id/addNote"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_notesList_to_noteDetail"
+            app:destination="@id/noteDetail" />
+        <action
+            android:id="@+id/action_notesList_to_about2"
+            app:destination="@id/about2"
+            app:popUpTo="@id/about2"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/addNote"
+        android:name="com.gauravnadar.notes.screens.AddNote"
+        android:label="AddNote"
+        tools:layout="@layout/add_note_fragment">
+        <action
+            android:id="@+id/action_addNote_to_notesList"
+            app:destination="@id/notesList"
+            app:popUpTo="@id/notesList"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteDetail"
+        android:name="com.gauravnadar.notes.screens.NoteDetail"
+        android:label="NoteDetail"
+        tools:layout="@layout/note_detail_fragment">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_noteDetail_to_notesList"
+            app:destination="@id/notesList" />
+    </fragment>
+    <fragment
+        android:id="@+id/about2"
+        android:name="com.gauravnadar.notes.screens.About"
+        android:label="About"
+        tools:layout="@layout/about_fragment">
+        <action
+            android:id="@+id/action_about2_to_notesList"
+            app:destination="@id/notesList"
+            app:popUpTo="@id/notesList"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
